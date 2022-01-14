@@ -26,15 +26,6 @@
        </tr>
   </thead>
 </table>
-
-
-
-
-
-
-
-
-
 </form>
 </body>
 </html>
