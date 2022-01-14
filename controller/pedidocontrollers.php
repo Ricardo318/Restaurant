@@ -26,7 +26,7 @@ class PedidoController
 
     public function eliminarPedido($rut)
     {
-        $this->pedido->eliminar($rut);
+        $this->pedido->eliminar($mesa);
         $pedido = $this->pedido->listar();
       
     }
