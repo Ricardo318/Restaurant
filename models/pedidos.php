@@ -1,7 +1,8 @@
 <?php
-require_once " C:/xampp/htdocs/restaurant/models/cnxbd.php";
 
-class pedido{
+require_once "C:/xampp/htdocs/models/cnxbd.php";
+
+class pedido{ 
 
 private $mesa;
 private $descripcion;
@@ -39,17 +40,17 @@ function __construct($mesa,$descripcion)
         $descripcion= $pedido->getDescripcion(); 
 
         $db= new DB();
-        $sentencia=  $db->getConexion()->prepare("INSERT INTO pedidos (mesa,descripcion) VALUES (?,?,?,?,?,?)");
+        $sentencia=  $db->getConexion()->prepare("INSERT INTO pedidos (mesa,descripcion) VALUES (?,?)");
         $sentencia->bindParam(1,  $mesa);
         $sentencia->bindParam(2,  $descripcion);
       
-        $stmt->execute();
+        $sentencia->execute();
     }
 
-    public function eliminar(){
+    public function eliminarPedido(){
     
       $db= new DB();
-        $sentencia =  $db->getConexion()->prepare("DELETE FROM pedidos WHERE rut = ?");
+        $sentencia =  $db->getConexion()->prepare("DELETE FROM pedidos WHERE mesa = ?");
         $sentencia->bindParam(1, $mesa);
         $sentencia->execute();
     
@@ -61,7 +62,7 @@ function __construct($mesa,$descripcion)
         $sql = "SELECT * FROM pedidos";
         $sentencia = $db->getConexion()->prepare($sql);
         $sentencia->execute();
-        $resultado= $stmt->fetchAll();
+        $resultado= $sentencia->fetchAll();
         foreach ($resultado as $fila) { 
            $pedido= new Pedido();
            $pedido->setMesa($fila["mesa"]);
@@ -72,7 +73,6 @@ function __construct($mesa,$descripcion)
         return $pedidos;
     
     }
-
 
 
 
