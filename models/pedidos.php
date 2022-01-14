@@ -2,7 +2,7 @@
 
 require_once "C:/xampp/htdocs/models/cnxbd.php";
 
-class pedido{ 
+class Pedido{ 
 
 private $mesa;
 private $descripcion;
@@ -73,21 +73,5 @@ function __construct($mesa,$descripcion)
         return $pedidos;
     
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 }
