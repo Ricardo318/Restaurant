@@ -1,16 +1,10 @@
 <?php
 
-require"/restaurant/controller/pedidoControllers.php"
+require_once"C:xampp/htdocs/restaurant/controller/pedidoControllers.php"
 
-$pedidoControllers= new PedidoController();
+$pedidoController new PedidoController();
 
 $validacion = (isset($_GET['op']) && !empty($_GET['op']));
-
-if(!$validacion){
-    $pedidControllers->inicio();
-}else{
-
-    $op=$_GET["op"];
 
     if($op=="listar"){
         $pedidoControllers->listar();
@@ -37,9 +31,5 @@ if(!$validacion){
         $pedidoControllers->eliminar($mesa);
     }
 }
-
-
-
-
 
 ?>
