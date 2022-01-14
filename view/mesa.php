@@ -8,7 +8,7 @@
 <body>
 
 	<h1>Pedido</h1>
-	<form>
+	<form action="index.php?op=agregarPedido" method="post">
 	Mesa<select name="Mesa" id="Mesa">
 		<option value="1">Seleccione una mesa</option>
 		<option value="2">1</option>
